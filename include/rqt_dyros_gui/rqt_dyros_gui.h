@@ -28,7 +28,4 @@ private:
 };
 } // namespace
 
-
-Q_DECLARE_METATYPE(std_msgs::Float32ConstPtr);
-
 #endif // my_namespace__my_plugin_H

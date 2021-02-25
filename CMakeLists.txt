@@ -1,12 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(rqt_dyros_gui)
 
-## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rqt_gui
@@ -15,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(Qt5Widgets REQUIRED)
-set(CMAKE_AUTOMOC ON)
+
 catkin_python_setup()
 
 catkin_package(
@@ -40,20 +36,12 @@ set(rqt_dyros_gui_UIS
 qt5_wrap_cpp(rqt_dyros_gui_MOCS ${rqt_dyros_gui_HDRS})
 qt5_wrap_ui(rqt_dyros_gui_UIS_H ${rqt_dyros_gui_UIS})
 
-
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
 include_directories(
   include
   ${CMAKE_CURRENT_BINARY_DIR}/..
   ${catkin_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
 add_library(${PROJECT_NAME}
   ${rqt_dyros_gui_SRCS}
   ${rqt_dyros_gui_MOCS}
@@ -62,6 +50,5 @@ add_library(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
+  Qt5::Widgets
 )
-
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
