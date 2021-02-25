@@ -33,7 +33,7 @@ void RqtDyrosPlugin::initPlugin(qt_gui_cpp::PluginContext& context)
 
 void RqtDyrosPlugin::pushbutton()
 {
-  myMsg.data++;
+  myMsg.data = ui_.lineEdit->text().toFloat();
   myPub.publish(myMsg);
 }
 void RqtDyrosPlugin::subCallback(const std_msgs::Float32ConstPtr &msg)
