@@ -24,6 +24,25 @@ namespace rqt_dyros_gui
     ui_.setupUi(widget_);
     // add widget to the user interface
     context.addWidget(widget_);
+
+
+    myPub = node_->create_publisher<std_msgs::msg::Float32>("pub", 100);
+    mySub = node_->create_subscription<std_msgs::msg::Float32>("sub", 100, std::bind(&RqtDyrosPlugin::subCallback, this, std::placeholders::_1));
+
+    connect(ui_.myPushButton, SIGNAL(clicked()), this, SLOT(pushbutton()));
+  }
+
+  void RqtDyrosPlugin::pushbutton()
+  {
+    auto message = std_msgs::msg::Float32();
+    message.data = 0.1;
+
+    myPub->publish(message);
+  }
+
+  void RqtDyrosPlugin::subCallback(const std_msgs::msg::Float32::SharedPtr msg) const
+  {
+    ui_.myLabel->setText(QString::number(msg->data));
   }
 
   void RqtDyrosPlugin::shutdownPlugin()

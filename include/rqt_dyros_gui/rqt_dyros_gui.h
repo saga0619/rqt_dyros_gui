@@ -20,13 +20,21 @@ public:
   virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const;
   virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings);
 
-//protected slots:
+  void subCallback(const std_msgs::msg::Float32::SharedPtr msg) const;
+
+
+protected slots:
+  virtual void pushbutton();
 
 //signals:
   // Comment in to signal that the plugin has a way to configure it
   //bool hasConfiguration() const;
   //void triggerConfiguration();
+
 private:
+  rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr myPub;
+  rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr mySub;
+
   Ui::RqtDyrosGuiWidget ui_;
   QWidget* widget_;
 };
