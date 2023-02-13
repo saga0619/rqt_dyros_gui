@@ -25,8 +25,8 @@ void RqtDyrosPlugin::initPlugin(qt_gui_cpp::PluginContext& context)
   // add widget to the user interface
   context.addWidget(widget_);
 
-  mySub = nh_.subscribe("/subs",100,&RqtDyrosPlugin::subCallback, this);
-  myPub = nh_.advertise<std_msgs::Float32>("/pubs",100);
+  mySub = getNodeHandle().subscribe("/subs",100,&RqtDyrosPlugin::subCallback, this);
+  myPub = getNodeHandle().advertise<std_msgs::Float32>("/pubs",100);
 
   connect(ui_.myPushButton,SIGNAL(clicked()),this,SLOT(pushbutton()));
 }

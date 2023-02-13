@@ -36,7 +36,6 @@ signals:
 private:
   Ui::RqtDyrosGuiWidget ui_;
   QWidget* widget_;
-  ros::NodeHandle nh_;
 };
 } // namespace
 
