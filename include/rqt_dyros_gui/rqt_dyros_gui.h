@@ -2,9 +2,9 @@
 #define RQT_DYROS_H
 
 #include <rqt_gui_cpp/plugin.h>
-#include <rqt_dyros_gui/ui_rqt_dyros_gui.h>
+#include <ui_rqt_dyros_gui.h>
 #include <QWidget>
-#include <std_msgs/Float32.h>
+#include <std_msgs/msg/float32.hpp>
 #include <iostream>
 
 namespace rqt_dyros_gui {
