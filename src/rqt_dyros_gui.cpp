@@ -35,8 +35,8 @@ namespace rqt_dyros_gui
   void RqtDyrosPlugin::pushbutton()
   {
     auto message = std_msgs::msg::Float32();
-    message.data = 0.1;
-
+    message.data = ui_.lineEdit->text().toFloat();
+    
     myPub->publish(message);
   }
 
