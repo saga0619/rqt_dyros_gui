@@ -1,4 +1,4 @@
-<library path="lib/librqt_dyros_gui">
+<library path="rqt_dyros_gui">
   <class name="rqt_dyros_gui/RqtDyrosPlugin" type="rqt_dyros_gui::RqtDyrosPlugin" base_class_type="rqt_gui_cpp::Plugin">
     <description>
       An example Python GUI plugin to create a great user interface.
